@@ -9,7 +9,7 @@ float C[N][N];
 int64_t nanos() {
     struct timespec start;
     clock_gettime(CLOCK_MONOTONIC_RAW, &start);
-    return start.tv_sec + start.tv_nsec * 1000000000;
+    return (uint64_t)start.tv_sec * 1000000000 + start.tv_nsec;
 }
 
 int main() {
